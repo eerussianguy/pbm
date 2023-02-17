@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://doakv7gd0lfb1"]
+
+[ext_resource type="Script" path="res://script_resources/expense/Expense.gd" id="1_4t6pg"]
+
+[resource]
+script = ExtResource("1_4t6pg")
+title = "University Budget"
+amount = 2100
+metadata = null

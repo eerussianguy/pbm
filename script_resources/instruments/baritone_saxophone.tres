@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://djcpbenpbfy20"]
+
+[ext_resource type="Script" path="res://script_resources/instruments/instrument.gd" id="1_mogby"]
+[ext_resource type="Texture2D" uid="uid://omjf02j3mhhk" path="res://assets/baritone_saxophone.png" id="2_tvlsb"]
+
+[resource]
+script = ExtResource("1_mogby")
+name = "Baritone Saxophone"
+weight = 1
+texture = ExtResource("2_tvlsb")

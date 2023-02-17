@@ -1,0 +1,1066 @@
+[gd_scene load_steps=25 format=3 uid="uid://d1r0orcqat3ok"]
+
+[ext_resource type="Script" path="res://scripts/GameInstance.gd" id="1_t2chq"]
+[ext_resource type="Theme" uid="uid://cyk224o6irr6" path="res://assets/defaulttheme.tres" id="1_x8ntd"]
+[ext_resource type="Script" path="res://scenes/RosterTab.gd" id="2_htj6b"]
+[ext_resource type="Texture2D" uid="uid://cm8nsvie063go" path="res://assets/pbm_background.png" id="3_gjvj8"]
+[ext_resource type="FontFile" uid="uid://dt88nrya7t8ov" path="res://assets/font/Cohaerentia-SmallCaps-regular.ttf" id="5_eyhqy"]
+[ext_resource type="PackedScene" uid="uid://i38f0afoku3p" path="res://scenes/labeled_bar.tscn" id="6_dq344"]
+[ext_resource type="Script" path="res://scripts/Calendar.gd" id="7_7pyat"]
+[ext_resource type="PackedScene" uid="uid://ctgj6dhno4l03" path="res://scenes/weekday.tscn" id="7_wpwy3"]
+[ext_resource type="Script" path="res://scripts/Tasks.gd" id="9_evj0l"]
+[ext_resource type="Texture2D" uid="uid://0x3dp4vu7d82" path="res://assets/wood_background.png" id="9_kwve2"]
+[ext_resource type="Texture2D" uid="uid://d28hy1da86fxl" path="res://assets/sticky_note.png" id="12_ummvv"]
+[ext_resource type="Texture2D" uid="uid://dcueg3htlv4c7" path="res://assets/pink_sticky_note.png" id="13_daju4"]
+[ext_resource type="Texture2D" uid="uid://c7veomrik4tik" path="res://assets/green_sticky_note.png" id="14_5ytct"]
+[ext_resource type="Script" path="res://scripts/Inbox.gd" id="15_7v6on"]
+[ext_resource type="Texture2D" uid="uid://1gkg363quoxw" path="res://assets/default_pfp.png" id="15_8pinb"]
+[ext_resource type="Script" path="res://scripts/debug.gd" id="15_63h02"]
+[ext_resource type="Texture2D" uid="uid://bfnjxugttxep2" path="res://assets/blue_sticky_note.png" id="15_djwfq"]
+[ext_resource type="Script" path="res://scripts/SumButton.gd" id="16_k48gc"]
+[ext_resource type="Script" path="res://scripts/budget.gd" id="18_4tj6o"]
+[ext_resource type="Texture2D" uid="uid://3wa4pxi3edw" path="res://assets/billy_banner.png" id="18_b7s1x"]
+[ext_resource type="Texture2D" uid="uid://cfr31oynkp8ho" path="res://assets/billys_list.png" id="19_3iqbl"]
+[ext_resource type="Script" path="res://scripts/Rehearsal.gd" id="21_7fwmg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6g0ow"]
+bg_color = Color(0.411765, 0.317647, 0.588235, 0.643137)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5tvu"]
+bg_color = Color(0.807843, 0.807843, 0.807843, 1)
+
+[node name="GameInstance" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_x8ntd")
+script = ExtResource("1_t2chq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_gjvj8")
+ignore_texture_size = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.824219
+anchor_top = 0.00416667
+anchor_right = 0.997656
+anchor_bottom = 0.0597222
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SaveBtn" type="Button" parent="HBoxContainer"]
+offset_left = 144.0
+offset_right = 173.0
+offset_bottom = 39.0
+text = "Save"
+
+[node name="MenuButton" type="Button" parent="HBoxContainer"]
+offset_left = 182.0
+offset_right = 221.0
+offset_bottom = 39.0
+text = "Menu"
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = -1
+anchor_top = 0.0617284
+anchor_right = 1.0
+anchor_bottom = 1.0
+drag_to_rearrange_enabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Roster" type="Control" parent="TabContainer" groups=["RosterListener"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_htj6b")
+
+[node name="MemberPanel" type="Panel" parent="TabContainer/Roster"]
+anchors_preset = -1
+anchor_left = 0.434375
+anchor_top = 0.0906917
+anchor_right = 1.0
+anchor_bottom = 0.89462
+theme_override_styles/panel = SubResource("StyleBoxFlat_6g0ow")
+metadata/_edit_use_anchors_ = true
+
+[node name="MemberInfo" type="RichTextLabel" parent="TabContainer/Roster/MemberPanel"]
+anchors_preset = -1
+anchor_left = 0.00552486
+anchor_top = 0.0898662
+anchor_right = 0.464088
+anchor_bottom = 0.422562
+offset_right = 1.52588e-05
+bbcode_enabled = true
+text = "This is the
+member info
+info box!"
+metadata/_edit_use_anchors_ = true
+
+[node name="MemberName" type="Label" parent="TabContainer/Roster/MemberPanel"]
+anchors_preset = -1
+anchor_left = 0.00414365
+anchor_top = 0.00573614
+anchor_right = 0.46547
+anchor_bottom = 0.0879541
+theme_override_fonts/font = ExtResource("5_eyhqy")
+theme_override_font_sizes/font_size = 24
+text = "Firstname Lastname"
+metadata/_edit_use_anchors_ = true
+
+[node name="Skills" type="Label" parent="TabContainer/Roster/MemberPanel"]
+anchors_preset = -1
+anchor_left = 0.476519
+anchor_top = 0.00573614
+anchor_right = 0.584254
+anchor_bottom = 0.0592734
+theme_override_fonts/font = ExtResource("5_eyhqy")
+theme_override_font_sizes/font_size = 24
+text = "Skills
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="SkillOverall" type="Label" parent="TabContainer/Roster/MemberPanel"]
+offset_left = 584.0
+offset_top = 4.55557
+offset_right = 714.0
+offset_bottom = 40.5556
+theme_override_fonts/font = ExtResource("5_eyhqy")
+theme_override_font_sizes/font_size = 24
+text = "Overall: 99"
+
+[node name="SkillBox" type="VBoxContainer" parent="TabContainer/Roster/MemberPanel"]
+offset_left = 347.0
+offset_top = 42.0
+offset_right = 565.0
+offset_bottom = 226.0
+
+[node name="TechnicalSkill" parent="TabContainer/Roster/MemberPanel/SkillBox" instance=ExtResource("6_dq344")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 249.0
+offset_bottom = 28.0
+label = "Technical"
+
+[node name="IntonationSkill" parent="TabContainer/Roster/MemberPanel/SkillBox" instance=ExtResource("6_dq344")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 35.0
+offset_right = 249.0
+offset_bottom = 63.0
+label = "Intonation"
+
+[node name="LeadershipSkill" parent="TabContainer/Roster/MemberPanel/SkillBox" instance=ExtResource("6_dq344")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 70.0
+offset_right = 249.0
+offset_bottom = 98.0
+label = "Leadership"
+
+[node name="SocialSkill" parent="TabContainer/Roster/MemberPanel/SkillBox" instance=ExtResource("6_dq344")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 105.0
+offset_right = 249.0
+offset_bottom = 133.0
+label = "Social"
+
+[node name="CareerLabel" type="Label" parent="TabContainer/Roster/MemberPanel"]
+anchors_preset = -1
+anchor_left = 0.00552486
+anchor_top = 0.5785
+anchor_right = 0.11326
+anchor_bottom = 0.632037
+offset_bottom = 1.14441e-05
+theme_override_fonts/font = ExtResource("5_eyhqy")
+theme_override_font_sizes/font_size = 24
+text = "Career"
+metadata/_edit_use_anchors_ = true
+
+[node name="Career" type="ItemList" parent="TabContainer/Roster/MemberPanel"]
+offset_top = 331.0
+offset_right = 342.0
+offset_bottom = 524.0
+
+[node name="Buttons" type="GridContainer" parent="TabContainer/Roster/MemberPanel"]
+offset_left = 358.0
+offset_top = 333.0
+offset_right = 722.0
+offset_bottom = 521.0
+columns = 2
+
+[node name="MakeLeaderBtn" type="Button" parent="TabContainer/Roster/MemberPanel/Buttons"]
+offset_right = 141.0
+offset_bottom = 18.0
+tooltip_text = "Depending on their skills, section leaders can help or hurt their sections. However, some members may expect to be section leader in the future, so be careful what you do!"
+text = "Make Section Leader"
+
+[node name="RosterList" type="ItemList" parent="TabContainer/Roster"]
+anchors_preset = -1
+anchor_top = 0.0906917
+anchor_right = 0.433594
+anchor_bottom = 0.896157
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Roster"]
+anchors_preset = -1
+anchor_left = 0.00694444
+anchor_top = 0.0155979
+anchor_right = 0.310764
+anchor_bottom = 0.0779896
+offset_left = 0.111117
+offset_top = 8.8527
+offset_right = 0.222046
+offset_bottom = 0.263432
+
+[node name="SortButton" type="MenuButton" parent="TabContainer/Roster/HBoxContainer"]
+offset_right = 84.0
+offset_bottom = 32.0
+text = "Change Sort"
+flat = false
+item_count = 5
+popup/item_0/text = "Alphabetical (Last)"
+popup/item_0/id = 0
+popup/item_1/text = "Alphabetical (First)"
+popup/item_1/id = 1
+popup/item_2/text = "By Instrument"
+popup/item_2/id = 2
+popup/item_3/text = "By Class Year"
+popup/item_3/id = 3
+popup/item_4/text = "By Overall Skill"
+popup/item_4/id = 4
+
+[node name="Calendar" type="Control" parent="TabContainer" groups=["DateListener", "EventListener"]]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("7_7pyat")
+
+[node name="Week" type="HBoxContainer" parent="TabContainer/Calendar"]
+offset_left = 12.0
+offset_top = 120.0
+offset_right = 1256.0
+offset_bottom = 640.0
+
+[node name="Sunday" parent="TabContainer/Calendar/Week" instance=ExtResource("7_wpwy3")]
+
+[node name="Today" type="Label" parent="TabContainer/Calendar/Week/Sunday" groups=["Today"]]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -17.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 36
+text = "Today"
+
+[node name="Monday" parent="TabContainer/Calendar/Week" instance=ExtResource("7_wpwy3")]
+
+[node name="Tuesday" parent="TabContainer/Calendar/Week" instance=ExtResource("7_wpwy3")]
+
+[node name="Wednesday" parent="TabContainer/Calendar/Week" instance=ExtResource("7_wpwy3")]
+
+[node name="Thursday" parent="TabContainer/Calendar/Week" instance=ExtResource("7_wpwy3")]
+
+[node name="Friday" parent="TabContainer/Calendar/Week" instance=ExtResource("7_wpwy3")]
+
+[node name="Saturday" parent="TabContainer/Calendar/Week" instance=ExtResource("7_wpwy3")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Calendar"]
+anchors_preset = -1
+anchor_left = -0.326562
+anchor_top = -0.00768574
+anchor_right = -0.00390625
+offset_left = 1060.0
+offset_top = 69.0
+offset_right = 1255.0
+offset_bottom = 109.0
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AdvanceBtn" type="Button" parent="TabContainer/Calendar/HBoxContainer"]
+text = "Advance Time"
+
+[node name="ResetButton" type="Button" parent="TabContainer/Calendar/HBoxContainer"]
+custom_minimum_size = Vector2(59, 0)
+text = "Reset"
+
+[node name="BackWeekBtn" type="Button" parent="TabContainer/Calendar/HBoxContainer"]
+text = "Previous"
+
+[node name="ForwardWeekBtn" type="Button" parent="TabContainer/Calendar/HBoxContainer"]
+custom_minimum_size = Vector2(59, 0)
+text = "Next"
+
+[node name="MonthYear" type="Label" parent="TabContainer/Calendar"]
+offset_left = 18.0
+offset_top = 63.0
+offset_right = 369.0
+offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("5_eyhqy")
+theme_override_font_sizes/font_size = 36
+text = "March 2022"
+metadata/_edit_use_anchors_ = true
+
+[node name="Tasks" type="Control" parent="TabContainer" groups=["StickyListener", "TaskListener"]]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("9_evj0l")
+
+[node name="BgRect" type="TextureRect" parent="TabContainer/Tasks"]
+anchors_preset = -1
+anchor_left = 0.296875
+anchor_top = 0.0353544
+anchor_right = 0.971094
+anchor_bottom = 0.946883
+texture = ExtResource("9_kwve2")
+ignore_texture_size = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="TabContainer/Tasks"]
+anchors_preset = -1
+anchor_left = 0.0132813
+anchor_top = 0.0368915
+anchor_right = 0.282813
+anchor_bottom = 0.953032
+metadata/_edit_use_anchors_ = true
+
+[node name="NoneSelected" type="Label" parent="TabContainer/Tasks/Panel"]
+visible = false
+anchors_preset = -1
+anchor_top = 0.00671141
+anchor_right = 0.588406
+anchor_bottom = 0.045302
+grow_vertical = 2
+text = "Click on a sticky to select it."
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Tasks/Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -283.0
+offset_right = 160.0
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="TabContainer/Tasks/Panel/VBoxContainer"]
+theme_override_font_sizes/font_size = 36
+text = "Task"
+metadata/_edit_use_anchors_ = true
+
+[node name="ShortLabel" type="RichTextLabel" parent="TabContainer/Tasks/Panel/VBoxContainer"]
+theme_override_font_sizes/normal_font_size = 18
+text = "This is the short description on the note."
+fit_content_height = true
+
+[node name="LongLabel" type="RichTextLabel" parent="TabContainer/Tasks/Panel/VBoxContainer"]
+theme_override_colors/default_color = Color(0.847059, 0.847059, 0.847059, 1)
+text = "This is all the information about the task. The description could be very long, so this box should have a lot of space."
+fit_content_height = true
+
+[node name="VSeparator" type="VSeparator" parent="TabContainer/Tasks/Panel/VBoxContainer"]
+
+[node name="ButtonIntro" type="Label" parent="TabContainer/Tasks/Panel/VBoxContainer"]
+theme_override_colors/font_color = Color(0.694118, 0.694118, 0.694118, 1)
+text = "Change sticky color:"
+
+[node name="ColorButtons" type="HBoxContainer" parent="TabContainer/Tasks/Panel/VBoxContainer"]
+alignment = 1
+
+[node name="Yellow" type="TextureRect" parent="TabContainer/Tasks/Panel/VBoxContainer/ColorButtons"]
+custom_minimum_size = Vector2(40, 40)
+texture = ExtResource("12_ummvv")
+ignore_texture_size = true
+
+[node name="YBtn" type="Button" parent="TabContainer/Tasks/Panel/VBoxContainer/ColorButtons/Yellow"]
+offset_right = 40.0
+offset_bottom = 40.0
+flat = true
+
+[node name="Pink" type="TextureRect" parent="TabContainer/Tasks/Panel/VBoxContainer/ColorButtons"]
+custom_minimum_size = Vector2(40, 40)
+texture = ExtResource("13_daju4")
+ignore_texture_size = true
+
+[node name="PBtn" type="Button" parent="TabContainer/Tasks/Panel/VBoxContainer/ColorButtons/Pink"]
+offset_right = 40.0
+offset_bottom = 40.0
+flat = true
+
+[node name="Green" type="TextureRect" parent="TabContainer/Tasks/Panel/VBoxContainer/ColorButtons"]
+custom_minimum_size = Vector2(40, 40)
+texture = ExtResource("14_5ytct")
+ignore_texture_size = true
+
+[node name="GBtn" type="Button" parent="TabContainer/Tasks/Panel/VBoxContainer/ColorButtons/Green"]
+offset_right = 40.0
+offset_bottom = 40.0
+flat = true
+
+[node name="Blue" type="TextureRect" parent="TabContainer/Tasks/Panel/VBoxContainer/ColorButtons"]
+custom_minimum_size = Vector2(40, 40)
+texture = ExtResource("15_djwfq")
+ignore_texture_size = true
+
+[node name="BBtn" type="Button" parent="TabContainer/Tasks/Panel/VBoxContainer/ColorButtons/Blue"]
+offset_right = 40.0
+offset_bottom = 40.0
+flat = true
+
+[node name="VSeparator2" type="VSeparator" parent="TabContainer/Tasks/Panel/VBoxContainer"]
+
+[node name="CompleteBtn" type="Button" parent="TabContainer/Tasks/Panel/VBoxContainer"]
+text = "Complete Task"
+
+[node name="Inbox" type="Control" parent="TabContainer" groups=["EmailListener"]]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("15_7v6on")
+
+[node name="View" type="VBoxContainer" parent="TabContainer/Inbox"]
+anchors_preset = -1
+anchor_left = 0.009375
+anchor_top = 0.030743
+anchor_right = 0.5
+anchor_bottom = 0.985312
+metadata/_edit_use_anchors_ = true
+
+[node name="Header" type="HBoxContainer" parent="TabContainer/Inbox/View"]
+
+[node name="Label" type="Label" parent="TabContainer/Inbox/View/Header"]
+custom_minimum_size = Vector2(100, 0)
+text = "Sender"
+
+[node name="VSeparator" type="VSeparator" parent="TabContainer/Inbox/View/Header"]
+
+[node name="Label2" type="Label" parent="TabContainer/Inbox/View/Header"]
+custom_minimum_size = Vector2(420, 0)
+text = "Summary"
+clip_text = true
+
+[node name="VSeparator2" type="VSeparator" parent="TabContainer/Inbox/View/Header"]
+
+[node name="Label3" type="Label" parent="TabContainer/Inbox/View/Header"]
+custom_minimum_size = Vector2(50, 0)
+text = "Date"
+clip_text = true
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Inbox/View"]
+
+[node name="Lists" type="HBoxContainer" parent="TabContainer/Inbox/View"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Sender" type="VBoxContainer" parent="TabContainer/Inbox/View/Lists"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TabContainer/Inbox/View/Lists/Sender"]
+custom_minimum_size = Vector2(100, 0)
+text = "Indeed"
+clip_text = true
+
+[node name="VSeparator" type="VSeparator" parent="TabContainer/Inbox/View/Lists"]
+
+[node name="Summary" type="VBoxContainer" parent="TabContainer/Inbox/View/Lists"]
+metadata/_edit_use_anchors_ = true
+
+[node name="SumButton" type="Button" parent="TabContainer/Inbox/View/Lists/Summary"]
+custom_minimum_size = Vector2(420, 0)
+text = "Entry Level Mechanical Engineer @ A.W. Chesterton Company"
+flat = true
+clip_text = true
+alignment = 0
+script = ExtResource("16_k48gc")
+
+[node name="VSeparator2" type="VSeparator" parent="TabContainer/Inbox/View/Lists"]
+
+[node name="Time" type="VBoxContainer" parent="TabContainer/Inbox/View/Lists"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TabContainer/Inbox/View/Lists/Time"]
+custom_minimum_size = Vector2(50, 0)
+text = "Jan 7"
+clip_text = true
+
+[node name="Panel" type="Panel" parent="TabContainer/Inbox"]
+anchors_preset = -1
+anchor_left = 0.51875
+anchor_top = 0.041503
+anchor_right = 0.983594
+anchor_bottom = 0.977626
+metadata/_edit_use_anchors_ = true
+
+[node name="Indenter" type="HBoxContainer" parent="TabContainer/Inbox/Panel"]
+anchors_preset = -1
+anchor_left = 0.0218487
+anchor_top = 0.0180624
+anchor_right = 0.973109
+anchor_bottom = 0.968801
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Inbox/Panel/Indenter"]
+
+[node name="Control" type="Control" parent="TabContainer/Inbox/Panel/Indenter/VBoxContainer"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/Inbox/Panel/Indenter/VBoxContainer"]
+texture = ExtResource("15_8pinb")
+stretch_mode = 4
+
+[node name="Content" type="VBoxContainer" parent="TabContainer/Inbox/Panel/Indenter"]
+metadata/_edit_use_anchors_ = true
+
+[node name="SumLabel" type="Label" parent="TabContainer/Inbox/Panel/Indenter/Content"]
+custom_minimum_size = Vector2(525, 0)
+theme_override_font_sizes/font_size = 18
+text = "Entry Level Mechanical Engineer @ A.W. Chesterton Company"
+clip_text = true
+
+[node name="Sender" type="HBoxContainer" parent="TabContainer/Inbox/Panel/Indenter/Content"]
+
+[node name="SenderLab" type="Label" parent="TabContainer/Inbox/Panel/Indenter/Content/Sender"]
+theme_override_font_sizes/font_size = 18
+text = "Indeed"
+
+[node name="EmailLab" type="Label" parent="TabContainer/Inbox/Panel/Indenter/Content/Sender"]
+theme_override_colors/font_color = Color(0.694118, 0.694118, 0.694118, 1)
+text = "<donotreply@indeed.com>"
+
+[node name="DataLabel" type="Label" parent="TabContainer/Inbox/Panel/Indenter/Content"]
+theme_override_colors/font_color = Color(0.694118, 0.694118, 0.694118, 1)
+text = "to: me
+date: Jan 7, 2023, 10:20pm
+"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Inbox/Panel/Indenter/Content"]
+
+[node name="Body" type="RichTextLabel" parent="TabContainer/Inbox/Panel/Indenter/Content"]
+custom_minimum_size = Vector2(0, 300)
+bbcode_enabled = true
+text = "This is the body of the email.
+THS IS THE BODY OF THE EMAIL!
+
+
+THIS IS THE BODY OF THE EMAIL!
+
+Love,
+The developer"
+
+[node name="Buttons" type="HBoxContainer" parent="TabContainer/Inbox/Panel/Indenter/Content"]
+
+[node name="DeleteBtn" type="Button" parent="TabContainer/Inbox/Panel/Indenter/Content/Buttons"]
+text = "Delete"
+
+[node name="Budget" type="Control" parent="TabContainer" groups=["MoneyListener"]]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("18_4tj6o")
+
+[node name="TabContainer" type="TabContainer" parent="TabContainer/Budget"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Overview" type="Control" parent="TabContainer/Budget/TabContainer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Budget/TabContainer/Overview"]
+anchors_preset = -1
+anchor_left = 0.0125
+anchor_top = 0.0223801
+anchor_right = 0.31875
+anchor_bottom = 0.981528
+columns = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AvCash" type="RichTextLabel" parent="TabContainer/Budget/TabContainer/Overview/GridContainer"]
+custom_minimum_size = Vector2(169, 0)
+theme_override_font_sizes/normal_font_size = 20
+text = "Available Cash:"
+fit_content_height = true
+
+[node name="AvCashVal" type="RichTextLabel" parent="TabContainer/Budget/TabContainer/Overview/GridContainer"]
+custom_minimum_size = Vector2(129, 0)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[color=green]$40,000[/color]"
+fit_content_height = true
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Budget/TabContainer/Overview/GridContainer"]
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Budget/TabContainer/Overview/GridContainer"]
+
+[node name="MonthExp" type="RichTextLabel" parent="TabContainer/Budget/TabContainer/Overview/GridContainer"]
+custom_minimum_size = Vector2(169, 0)
+theme_override_font_sizes/normal_font_size = 20
+text = "Monthly Expenses:"
+fit_content_height = true
+
+[node name="MonthExpVal" type="RichTextLabel" parent="TabContainer/Budget/TabContainer/Overview/GridContainer"]
+custom_minimum_size = Vector2(129, 0)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[color=red]$3,000[/color]"
+fit_content_height = true
+
+[node name="MonthInc" type="RichTextLabel" parent="TabContainer/Budget/TabContainer/Overview/GridContainer"]
+custom_minimum_size = Vector2(169, 0)
+theme_override_font_sizes/normal_font_size = 20
+text = "Monthly Income:"
+fit_content_height = true
+
+[node name="MonthIncVal" type="RichTextLabel" parent="TabContainer/Budget/TabContainer/Overview/GridContainer"]
+custom_minimum_size = Vector2(129, 0)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[color=green]$3,100[/color]"
+fit_content_height = true
+
+[node name="HSeparator3" type="HSeparator" parent="TabContainer/Budget/TabContainer/Overview/GridContainer"]
+
+[node name="HSeparator4" type="HSeparator" parent="TabContainer/Budget/TabContainer/Overview/GridContainer"]
+
+[node name="NetMonth" type="RichTextLabel" parent="TabContainer/Budget/TabContainer/Overview/GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+theme_override_font_sizes/normal_font_size = 20
+text = "Net Monthly Income:"
+fit_content_height = true
+
+[node name="NetMonthVal" type="RichTextLabel" parent="TabContainer/Budget/TabContainer/Overview/GridContainer"]
+custom_minimum_size = Vector2(129, 0)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[color=green]$100[/color]"
+fit_content_height = true
+
+[node name="ExpensePanel" type="Panel" parent="TabContainer/Budget/TabContainer/Overview"]
+offset_left = 497.0
+offset_top = 15.0
+offset_right = 851.0
+offset_bottom = 602.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Budget/TabContainer/Overview/ExpensePanel"]
+anchors_preset = -1
+anchor_left = 0.0282486
+anchor_top = 0.0187394
+anchor_right = 0.971751
+anchor_bottom = 0.981261
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TabContainer/Budget/TabContainer/Overview/ExpensePanel/VBoxContainer"]
+theme_override_font_sizes/font_size = 24
+text = "Recurring Expenses"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Budget/TabContainer/Overview/ExpensePanel/VBoxContainer"]
+
+[node name="Label2" type="Label" parent="TabContainer/Budget/TabContainer/Overview/ExpensePanel/VBoxContainer"]
+theme_override_colors/font_color = Color(0.694118, 0.694118, 0.694118, 1)
+text = "This month"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Budget/TabContainer/Overview/ExpensePanel/VBoxContainer"]
+bbcode_enabled = true
+text = "[color=green]+$3,000[/color] University Budget"
+fit_content_height = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="TabContainer/Budget/TabContainer/Overview/ExpensePanel/VBoxContainer"]
+bbcode_enabled = true
+text = "[color=green]+$100[/color] Alumni Fund"
+fit_content_height = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="TabContainer/Budget/TabContainer/Overview/ExpensePanel/VBoxContainer"]
+bbcode_enabled = true
+text = "[color=red]-$200[/color] Instrument Repairs"
+fit_content_height = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="TabContainer/Budget/TabContainer/Overview/ExpensePanel/VBoxContainer"]
+bbcode_enabled = true
+text = "[color=red]-$2000[/color] Band Room Rent"
+fit_content_height = true
+
+[node name="TransactionPanel" type="Panel" parent="TabContainer/Budget/TabContainer/Overview"]
+offset_left = 881.0
+offset_top = 14.5556
+offset_right = 1235.0
+offset_bottom = 601.556
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Budget/TabContainer/Overview/TransactionPanel"]
+anchors_preset = -1
+anchor_left = 0.0282486
+anchor_top = 0.0187394
+anchor_right = 0.971751
+anchor_bottom = 0.981261
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TabContainer/Budget/TabContainer/Overview/TransactionPanel/VBoxContainer"]
+theme_override_font_sizes/font_size = 24
+text = "Recent Transactions"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Budget/TabContainer/Overview/TransactionPanel/VBoxContainer"]
+
+[node name="Label2" type="Label" parent="TabContainer/Budget/TabContainer/Overview/TransactionPanel/VBoxContainer"]
+theme_override_colors/font_color = Color(0.694118, 0.694118, 0.694118, 1)
+text = "This month"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Budget/TabContainer/Overview/TransactionPanel/VBoxContainer"]
+bbcode_enabled = true
+text = "[color=green]+$3,000[/color] University Budget"
+fit_content_height = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="TabContainer/Budget/TabContainer/Overview/TransactionPanel/VBoxContainer"]
+bbcode_enabled = true
+text = "[color=green]+$100[/color] Alumni Fund"
+fit_content_height = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="TabContainer/Budget/TabContainer/Overview/TransactionPanel/VBoxContainer"]
+bbcode_enabled = true
+text = "[color=red]-$200[/color] Instrument Repairs"
+fit_content_height = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="TabContainer/Budget/TabContainer/Overview/TransactionPanel/VBoxContainer"]
+bbcode_enabled = true
+text = "[color=red]-$2000[/color] Band Room Rent"
+fit_content_height = true
+
+[node name="Shop" type="Control" parent="TabContainer/Budget/TabContainer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Panel" type="Panel" parent="TabContainer/Budget/TabContainer/Shop"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n5tvu")
+
+[node name="Panel2" type="TextureRect" parent="TabContainer/Budget/TabContainer/Shop/Panel"]
+anchors_preset = -1
+anchor_left = -0.00078125
+anchor_right = 1.00078
+anchor_bottom = 0.184385
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_b7s1x")
+ignore_texture_size = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/Budget/TabContainer/Shop/Panel"]
+anchors_preset = -1
+anchor_left = 0.0109375
+anchor_top = 0.0104796
+anchor_right = 0.300738
+anchor_bottom = 0.179903
+offset_right = -146.944
+offset_bottom = -41.984
+scale = Vector2(1.656, 1.656)
+texture = ExtResource("19_3iqbl")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TabContainer/Budget/TabContainer/Shop/Panel"]
+anchors_preset = -1
+anchor_left = 0.310937
+anchor_top = 0.0120781
+anchor_right = 0.60625
+anchor_bottom = 0.080817
+rotation = 0.190241
+theme_override_font_sizes/font_size = 32
+text = "Welcome to my website!"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Budget/TabContainer/Shop/Panel"]
+offset_left = 839.0
+offset_top = 15.5556
+offset_right = 1139.0
+offset_bottom = 125.556
+theme_override_colors/default_color = Color(0.788235, 0.384314, 0, 1)
+theme_override_font_sizes/normal_font_size = 36
+text = "\" You can buy anything here! \""
+
+[node name="ColorRect" type="ColorRect" parent="TabContainer/Budget/TabContainer/Shop/Panel"]
+offset_top = 115.0
+offset_right = 1283.0
+offset_bottom = 129.0
+color = Color(0, 0.415686, 0.411765, 1)
+
+[node name="Scholarships" type="Control" parent="TabContainer/Budget/TabContainer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Rehearsal" type="Control" parent="TabContainer" groups=["EventListener"]]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("21_7fwmg")
+
+[node name="Label" type="Label" parent="TabContainer/Rehearsal"]
+anchors_preset = -1
+anchor_left = 0.0101562
+anchor_top = 0.0230572
+anchor_right = 0.35625
+anchor_bottom = 0.0953032
+theme_override_font_sizes/font_size = 32
+text = "Song List"
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemList" type="ItemList" parent="TabContainer/Rehearsal"]
+anchors_preset = -1
+anchor_left = 0.0078125
+anchor_top = 0.104526
+anchor_right = 0.364062
+anchor_bottom = 0.982237
+metadata/_edit_use_anchors_ = true
+
+[node name="TabContainer" type="TabContainer" parent="TabContainer/Rehearsal"]
+anchors_preset = -1
+anchor_left = 0.395312
+anchor_top = 0.1076
+anchor_right = 0.989062
+anchor_bottom = 0.728608
+metadata/_edit_use_anchors_ = true
+
+[node name="Overview" type="Control" parent="TabContainer/Rehearsal/TabContainer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Planning" type="Control" parent="TabContainer/Rehearsal/TabContainer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Rehearsal/TabContainer/Planning"]
+anchors_preset = -1
+anchor_left = 0.0328947
+anchor_top = 0.0817942
+anchor_right = 0.952632
+anchor_bottom = 0.501319
+theme_override_constants/h_separation = 15
+columns = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+theme_override_font_sizes/font_size = 18
+text = "First Song:"
+
+[node name="Control" type="Control" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Control2" type="Control" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ReplaceFirstBtn" type="Button" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+text = " Replace "
+
+[node name="RemoveFirstBtn" type="Button" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+text = " Remove "
+
+[node name="FirstLabel" type="Label" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+text = "No Song Selected"
+
+[node name="Label2" type="Label" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+theme_override_font_sizes/font_size = 18
+text = "Second Song:"
+
+[node name="Control3" type="Control" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Control4" type="Control" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ReplaceSecondBtn" type="Button" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+text = " Replace "
+
+[node name="RemoveSecondBtn" type="Button" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+text = " Remove "
+
+[node name="SecondLabel" type="Label" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+text = "No Song Selected"
+
+[node name="Label3" type="Label" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+theme_override_font_sizes/font_size = 18
+text = "Third Song:"
+
+[node name="Control5" type="Control" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Control6" type="Control" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ReplaceThirdBtn" type="Button" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+text = " Replace "
+
+[node name="RemoveThirdBtn" type="Button" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+text = " Remove "
+
+[node name="ThirdLabel" type="Label" parent="TabContainer/Rehearsal/TabContainer/Planning/GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+text = "No Song Selected"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Rehearsal/TabContainer/Planning"]
+offset_left = 18.0
+offset_top = 201.0
+offset_right = 336.0
+offset_bottom = 365.0
+
+[node name="Label" type="Label" parent="TabContainer/Rehearsal/TabContainer/Planning/VBoxContainer"]
+text = "Rehearsals can only be scheduled on Wednesdays."
+
+[node name="ScheduleSoonBtn" type="Button" parent="TabContainer/Rehearsal/TabContainer/Planning/VBoxContainer"]
+text = "Schedule Rehearsal on 1/1"
+
+[node name="ScheduleLaterBtn" type="Button" parent="TabContainer/Rehearsal/TabContainer/Planning/VBoxContainer"]
+text = "Schedule Rehearsal on 1/8"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Rehearsal/TabContainer/Planning/VBoxContainer"]
+
+[node name="Info" type="RichTextLabel" parent="TabContainer/Rehearsal/TabContainer/Planning/VBoxContainer"]
+text = "Rehearsal Difficulty: 0"
+fit_content_height = true
+
+[node name="Panel" type="Panel" parent="TabContainer/Rehearsal"]
+anchors_preset = -1
+anchor_left = 0.396875
+anchor_top = 0.74398
+anchor_right = 0.989062
+anchor_bottom = 0.973015
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="TabContainer/Rehearsal/Panel"]
+anchors_preset = -1
+anchor_left = 0.0171504
+anchor_top = 0.0536913
+anchor_right = 1.0
+anchor_bottom = 0.268456
+theme_override_font_sizes/font_size = 28
+text = "The Song Title"
+metadata/_edit_use_anchors_ = true
+
+[node name="Info" type="RichTextLabel" parent="TabContainer/Rehearsal/Panel"]
+anchors_preset = -1
+anchor_left = 0.0197889
+anchor_top = 0.295302
+anchor_right = 0.646438
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Info about the song."
+metadata/_edit_use_anchors_ = true
+
+[node name="Debug" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("15_63h02")
+
+[node name="Text" type="RichTextLabel" parent="TabContainer/Debug"]
+anchors_preset = -1
+anchor_left = 0.009375
+anchor_top = 0.0199829
+anchor_right = 0.916406
+anchor_bottom = 0.982237
+grow_horizontal = 2
+grow_vertical = 2
+text = "This text probably needs to be refreshed to be usable."
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Debug"]
+anchors_preset = -1
+anchor_left = 0.926562
+anchor_top = 0.762425
+anchor_right = 0.998438
+anchor_bottom = 0.988386
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="FPSLabel" type="Label" parent="TabContainer/Debug/VBoxContainer"]
+text = "00"
+
+[node name="RefreshBtn" type="Button" parent="TabContainer/Debug/VBoxContainer"]
+text = "Refresh"
+metadata/_edit_use_anchors_ = true
+
+[node name="DumpBtn" type="Button" parent="TabContainer/Debug/VBoxContainer"]
+text = "Dump"
+
+[connection signal="pressed" from="HBoxContainer/SaveBtn" to="." method="_on_save_btn_pressed"]
+[connection signal="pressed" from="HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="TabContainer/Roster/MemberPanel/Buttons/MakeLeaderBtn" to="TabContainer/Roster" method="_on_make_leader_btn_pressed"]
+[connection signal="item_selected" from="TabContainer/Roster/RosterList" to="TabContainer/Roster" method="_on_roster_list_item_selected"]
+[connection signal="pressed" from="TabContainer/Calendar/HBoxContainer/AdvanceBtn" to="TabContainer/Calendar" method="_on_advance_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Calendar/HBoxContainer/ResetButton" to="TabContainer/Calendar" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="TabContainer/Calendar/HBoxContainer/BackWeekBtn" to="TabContainer/Calendar" method="_on_back_week_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Calendar/HBoxContainer/ForwardWeekBtn" to="TabContainer/Calendar" method="_on_forward_week_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Tasks/Panel/VBoxContainer/ColorButtons/Yellow/YBtn" to="TabContainer/Tasks" method="_on_y_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Tasks/Panel/VBoxContainer/ColorButtons/Pink/PBtn" to="TabContainer/Tasks" method="_on_p_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Tasks/Panel/VBoxContainer/ColorButtons/Green/GBtn" to="TabContainer/Tasks" method="_on_g_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Tasks/Panel/VBoxContainer/ColorButtons/Blue/BBtn" to="TabContainer/Tasks" method="_on_b_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Tasks/Panel/VBoxContainer/CompleteBtn" to="TabContainer/Tasks" method="_on_complete_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Inbox/View/Lists/Summary/SumButton" to="TabContainer/Inbox/View/Lists/Summary/SumButton" method="_on_pressed"]
+[connection signal="pressed" from="TabContainer/Inbox/Panel/Indenter/Content/Buttons/DeleteBtn" to="TabContainer/Inbox" method="_on_delete_btn_pressed"]
+[connection signal="item_selected" from="TabContainer/Rehearsal/ItemList" to="TabContainer/Rehearsal" method="_on_item_list_item_selected"]
+[connection signal="pressed" from="TabContainer/Rehearsal/TabContainer/Planning/GridContainer/ReplaceFirstBtn" to="TabContainer/Rehearsal" method="_on_replace_first_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Rehearsal/TabContainer/Planning/GridContainer/RemoveFirstBtn" to="TabContainer/Rehearsal" method="_on_remove_first_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Rehearsal/TabContainer/Planning/GridContainer/ReplaceSecondBtn" to="TabContainer/Rehearsal" method="_on_replace_second_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Rehearsal/TabContainer/Planning/GridContainer/RemoveSecondBtn" to="TabContainer/Rehearsal" method="_on_remove_second_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Rehearsal/TabContainer/Planning/GridContainer/ReplaceThirdBtn" to="TabContainer/Rehearsal" method="_on_replace_third_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Rehearsal/TabContainer/Planning/GridContainer/RemoveThirdBtn" to="TabContainer/Rehearsal" method="_on_remove_third_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Rehearsal/TabContainer/Planning/VBoxContainer/ScheduleSoonBtn" to="TabContainer/Rehearsal" method="_on_schedule_soon_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Rehearsal/TabContainer/Planning/VBoxContainer/ScheduleLaterBtn" to="TabContainer/Rehearsal" method="_on_schedule_later_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Debug/VBoxContainer/RefreshBtn" to="TabContainer/Debug" method="_on_refresh_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Debug/VBoxContainer/DumpBtn" to="TabContainer/Debug" method="_on_dump_btn_pressed"]

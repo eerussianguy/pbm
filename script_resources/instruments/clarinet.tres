@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dkkicp3cykjw3"]
+
+[ext_resource type="Script" path="res://script_resources/instruments/instrument.gd" id="1_xfdhl"]
+[ext_resource type="Texture2D" uid="uid://hvnav8oailts" path="res://assets/clarinet.png" id="2_n028h"]
+
+[resource]
+script = ExtResource("1_xfdhl")
+name = "Clarinet"
+weight = 10
+texture = ExtResource("2_n028h")

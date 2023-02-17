@@ -1,0 +1,103 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh0r0r2k4cq6t"]
+
+[ext_resource type="Theme" uid="uid://cyk224o6irr6" path="res://assets/defaulttheme.tres" id="1_0ekci"]
+[ext_resource type="Script" path="res://scripts/game_creator.gd" id="2_440aj"]
+
+[node name="GameCreator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("1_0ekci")
+script = ExtResource("2_440aj")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13
+anchor_top = 0.13
+anchor_right = 0.9
+anchor_bottom = 0.9
+offset_left = -8.39999
+offset_top = -3.6
+offset_right = 3.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 151.0
+offset_top = 6.0
+offset_right = -156.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Create New Game"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "First, you may configure the basic aspects of the band simulation.
+Some of these properties cannot be changed once the simulation begins!"
+horizontal_alignment = 1
+
+[node name="SaveNameContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/SaveNameContainer"]
+layout_mode = 2
+text = "Save Name: "
+
+[node name="SaveNameEdit" type="LineEdit" parent="Panel/VBoxContainer/SaveNameContainer"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+placeholder_text = "My Cool Band!"
+max_length = 32
+
+[node name="BandSizeContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/BandSizeContainer"]
+layout_mode = 2
+text = "Starting Roster Size:"
+
+[node name="BSSlider" type="HSlider" parent="Panel/VBoxContainer/BandSizeContainer"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+min_value = 25.0
+max_value = 75.0
+value = 45.0
+
+[node name="ResultLabel" type="Label" parent="Panel/VBoxContainer/BandSizeContainer"]
+layout_mode = 2
+text = "45 (recommended)"
+
+[node name="EmptyLabel" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CancelBtn" type="Button" parent="Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Cancel"
+
+[node name="StartBtn" type="Button" parent="Panel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+disabled = true
+text = "Start"
+
+[connection signal="text_changed" from="Panel/VBoxContainer/SaveNameContainer/SaveNameEdit" to="." method="_on_save_name_edit_text_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/BandSizeContainer/BSSlider" to="." method="_on_bs_slider_value_changed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer2/CancelBtn" to="." method="_on_cancel_btn_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer2/StartBtn" to="." method="_on_start_btn_pressed"]

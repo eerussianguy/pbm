@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bswpwlv7y5up3"]
+
+[ext_resource type="Script" path="res://scripts/long_strings.gd" id="1_kui1c"]
+
+[node name="LongStrings" type="Node"]
+script = ExtResource("1_kui1c")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cicc5kadtdg8k"]
+
+[ext_resource type="Script" path="res://script_resources/instruments/instrument.gd" id="1_xufot"]
+[ext_resource type="Texture2D" uid="uid://c7ts6v4woma7g" path="res://assets/drumset.png" id="2_fvdy1"]
+
+[resource]
+script = ExtResource("1_xufot")
+name = "Drumset"
+weight = 3
+texture = ExtResource("2_fvdy1")

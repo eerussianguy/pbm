@@ -1,0 +1,4 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://script_resources/instruments/instrument.gd" id="1_j7po8"]
+[ext_resource type="Texture2D" uid="uid://dksyxiol2dxpl" path="res://assets/trombone.png" id="2_ha2ug"]

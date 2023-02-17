@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://so18dvjonfl"]
+
+[ext_resource type="Script" path="res://script_resources/songs/song.gd" id="1_7msly"]
+
+[resource]
+script = ExtResource("1_7msly")
+title = "Fight Fiercely, Students!"
+author = "Famous Alum"
+copyright_credit = "Public Domain -- Fight Fiercely, Harvard! by Tom Lehrer"
+difficulty = 3

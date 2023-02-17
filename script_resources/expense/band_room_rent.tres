@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://biiofpr2o4hk5"]
+
+[ext_resource type="Script" path="res://script_resources/expense/Expense.gd" id="1_toah7"]
+
+[resource]
+script = ExtResource("1_toah7")
+title = "Band Room Rent"
+amount = -2000
+metadata = {}

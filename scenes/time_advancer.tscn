@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=3 uid="uid://ul5q6ljwt3mj"]
+
+[ext_resource type="Theme" uid="uid://cyk224o6irr6" path="res://assets/defaulttheme.tres" id="1_h6df0"]
+[ext_resource type="Script" path="res://scripts/time_advancer.gd" id="2_ivofl"]
+
+[node name="TimeAdvancer" type="Control" groups=["DateListener"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_h6df0")
+script = ExtResource("2_ivofl")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.5
+offset_top = -156.5
+offset_right = 258.5
+offset_bottom = 156.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.5
+offset_right = 77.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSeparator" type="VSeparator" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+offset_right = 280.0
+offset_bottom = 10.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+offset_top = 17.0
+offset_right = 280.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 24
+text = "Advance Time"
+horizontal_alignment = 1
+
+[node name="InfoAboutTime" type="RichTextLabel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+offset_top = 52.0
+offset_right = 280.0
+offset_bottom = 86.0
+bbcode_enabled = true
+text = "[center]Time can only be advanced if all required tasks and events are completed.[/center]"
+fit_content_height = true
+
+[node name="VSeparator2" type="VSeparator" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+offset_top = 93.0
+offset_right = 280.0
+offset_bottom = 103.0
+
+[node name="OneDayBtn" type="Button" parent="Panel/VBoxContainer"]
+offset_top = 110.0
+offset_right = 280.0
+offset_bottom = 128.0
+text = "Advance One Day"
+
+[node name="NextEventBtn" type="Button" parent="Panel/VBoxContainer"]
+offset_top = 135.0
+offset_right = 280.0
+offset_bottom = 153.0
+text = "Advance To Next Event"
+
+[node name="VSeparator3" type="VSeparator" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+offset_top = 160.0
+offset_right = 280.0
+offset_bottom = 170.0
+
+[node name="CancelBtn" type="Button" parent="Panel/VBoxContainer"]
+offset_top = 177.0
+offset_right = 280.0
+offset_bottom = 195.0
+text = "Cancel"
+
+[connection signal="pressed" from="Panel/VBoxContainer/OneDayBtn" to="." method="_on_one_day_btn_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/NextEventBtn" to="." method="_on_next_event_btn_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/CancelBtn" to="." method="_on_cancel_btn_pressed"]

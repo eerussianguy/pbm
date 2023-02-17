@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ktvbbf4g8spu"]
+
+[ext_resource type="Script" path="res://script_resources/instruments/instrument.gd" id="1_w0cbv"]
+[ext_resource type="Texture2D" uid="uid://c45q5ltlmuvej" path="res://assets/tenor_saxophone.png" id="2_6ovjn"]
+
+[resource]
+script = ExtResource("1_w0cbv")
+name = "Tenor Saxophone"
+weight = 6
+texture = ExtResource("2_6ovjn")

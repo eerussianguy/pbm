@@ -1,0 +1,109 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "Resource",
+"class": &"Email",
+"language": &"GDScript",
+"path": "res://script_resources/emails/Email.gd"
+}, {
+"base": "Resource",
+"class": &"Event",
+"language": &"GDScript",
+"path": "res://script_resources/events/Event.gd"
+}, {
+"base": "Resource",
+"class": &"Expense",
+"language": &"GDScript",
+"path": "res://script_resources/expense/Expense.gd"
+}, {
+"base": "Event",
+"class": &"GameEvent",
+"language": &"GDScript",
+"path": "res://script_resources/events/GameEvent.gd"
+}, {
+"base": "Control",
+"class": &"InfoPopup",
+"language": &"GDScript",
+"path": "res://scripts/info_popup.gd"
+}, {
+"base": "Resource",
+"class": &"Instrument",
+"language": &"GDScript",
+"path": "res://script_resources/instruments/instrument.gd"
+}, {
+"base": "Resource",
+"class": &"Member",
+"language": &"GDScript",
+"path": "res://script_resources/member.gd"
+}, {
+"base": "Event",
+"class": &"RehearsalEvent",
+"language": &"GDScript",
+"path": "res://script_resources/events/RehearsalEvent.gd"
+}, {
+"base": "Resource",
+"class": &"SaveGameResource",
+"language": &"GDScript",
+"path": "res://script_resources/save_game_resource.gd"
+}, {
+"base": "Resource",
+"class": &"Song",
+"language": &"GDScript",
+"path": "res://script_resources/songs/song.gd"
+}, {
+"base": "Resource",
+"class": &"Task",
+"language": &"GDScript",
+"path": "res://script_resources/tasks/Task.gd"
+}]
+_global_script_class_icons={
+"Email": "",
+"Event": "",
+"Expense": "",
+"GameEvent": "",
+"InfoPopup": "",
+"Instrument": "",
+"Member": "",
+"RehearsalEvent": "",
+"SaveGameResource": "",
+"Song": "",
+"Task": ""
+}
+
+[application]
+
+config/name="Pep Band Manager"
+run/main_scene="res://scenes/main_menu.tscn"
+config/features=PackedStringArray("4.0", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://scenes/Global.tscn"
+LongStrings="*res://scenes/long_strings.tscn"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
+[input]
+
+left_click={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
+]
+}
+
+[rendering]
+
+renderer/rendering_method="mobile"

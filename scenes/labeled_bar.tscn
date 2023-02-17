@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://i38f0afoku3p"]
+
+[ext_resource type="Theme" uid="uid://cyk224o6irr6" path="res://assets/defaulttheme.tres" id="1_icnsm"]
+[ext_resource type="Script" path="res://scripts/labeled_bar.gd" id="2_kb516"]
+
+[node name="LabeledBar" type="Control"]
+custom_minimum_size = Vector2(249, 28)
+layout_mode = 3
+anchor_right = 0.194531
+anchor_bottom = 0.0388889
+theme = ExtResource("1_icnsm")
+script = ExtResource("2_kb516")
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = -1
+anchor_left = 0.405622
+anchor_top = 0.107143
+anchor_right = 1.0
+anchor_bottom = 0.857143
+grow_horizontal = 0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_top = 0.142857
+anchor_right = 0.393574
+anchor_bottom = 0.928571
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "LabelText"
+metadata/_edit_use_anchors_ = true

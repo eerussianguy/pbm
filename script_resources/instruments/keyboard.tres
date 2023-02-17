@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c5xnkix55uyn1"]
+
+[ext_resource type="Script" path="res://script_resources/instruments/instrument.gd" id="1_by6j8"]
+[ext_resource type="Texture2D" uid="uid://bswhfmhdlkawh" path="res://assets/keyboard.png" id="2_rgpjk"]
+
+[resource]
+script = ExtResource("1_by6j8")
+name = "Keyboard"
+weight = 2
+texture = ExtResource("2_rgpjk")

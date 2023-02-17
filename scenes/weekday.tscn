@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctgj6dhno4l03"]
+
+[ext_resource type="Theme" uid="uid://cyk224o6irr6" path="res://assets/defaulttheme.tres" id="1_jivl8"]
+[ext_resource type="FontFile" uid="uid://dt88nrya7t8ov" path="res://assets/font/Cohaerentia-SmallCaps-regular.ttf" id="2_qwelk"]
+
+[node name="Weekday" type="Control"]
+custom_minimum_size = Vector2(170, 490)
+layout_mode = 3
+anchor_right = 0.132813
+anchor_bottom = 0.680556
+theme = ExtResource("1_jivl8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.984496
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="DayLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0968992
+anchor_right = 0.976744
+anchor_bottom = 0.121479
+theme_override_fonts/font = ExtResource("2_qwelk")
+theme_override_font_sizes/font_size = 30
+text = "31 Monday"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="GigList" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0693069
+anchor_top = 0.149798
+anchor_right = 0.915842
+anchor_bottom = 0.975708
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bxnlrvvjwiney"]
+
+[ext_resource type="Script" path="res://script_resources/instruments/instrument.gd" id="1_eushk"]
+[ext_resource type="Texture2D" uid="uid://cpuv6u4138k0k" path="res://assets/baritone.png" id="2_pl8by"]
+
+[resource]
+script = ExtResource("1_eushk")
+name = "Baritone"
+weight = 6
+texture = ExtResource("2_pl8by")

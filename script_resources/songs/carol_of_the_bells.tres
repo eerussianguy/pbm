@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cobjmy5lb17ox"]
+
+[ext_resource type="Script" path="res://script_resources/songs/song.gd" id="1_6dwna"]
+
+[resource]
+script = ExtResource("1_6dwna")
+title = "Carol of the Bells"
+author = "Peter J. Wilhousky"
+copyright_credit = "Public Domain -- Folk Song"
+difficulty = 5

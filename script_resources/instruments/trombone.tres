@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dcvkyknf27cvq"]
+
+[ext_resource type="Script" path="res://script_resources/instruments/instrument.gd" id="1_0mw8s"]
+[ext_resource type="Texture2D" uid="uid://dksyxiol2dxpl" path="res://assets/trombone.png" id="2_rsyho"]
+
+[resource]
+script = ExtResource("1_0mw8s")
+name = "Trombone"
+weight = 10
+texture = ExtResource("2_rsyho")

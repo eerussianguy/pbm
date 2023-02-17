@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bre8p73rbg6l0"]
+
+[ext_resource type="Theme" uid="uid://cyk224o6irr6" path="res://assets/defaulttheme.tres" id="1_5ybks"]
+[ext_resource type="Script" path="res://scripts/sticky_note.gd" id="1_e5dn5"]
+[ext_resource type="Texture2D" uid="uid://d28hy1da86fxl" path="res://assets/sticky_note.png" id="2_anp00"]
+
+[node name="StickyNote" type="Node2D" groups=["Sticky"]]
+script = ExtResource("1_e5dn5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(61.5, 60.7)
+scale = Vector2(0.532, 0.506612)
+texture = ExtResource("2_anp00")
+
+[node name="Text" type="RichTextLabel" parent="."]
+offset_left = 12.0
+offset_top = 17.0
+offset_right = 112.0
+offset_bottom = 117.0
+theme = ExtResource("1_5ybks")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[center]Do your laundry![/center]"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="Text" to="." method="_on_text_mouse_entered"]
+[connection signal="mouse_exited" from="Text" to="." method="_on_text_mouse_exited"]

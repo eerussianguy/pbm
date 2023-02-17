@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cyk224o6irr6"]
+
+[ext_resource type="StyleBox" uid="uid://dyhq81n2mdpn7" path="res://assets/buttonbox.tres" id="1_2ka2e"]
+[ext_resource type="FontFile" uid="uid://chgo8i8kkx1cr" path="res://assets/font/Cohaerentia-Regular.ttf" id="1_yd8m2"]
+[ext_resource type="FontFile" uid="uid://dt88nrya7t8ov" path="res://assets/font/Cohaerentia-SmallCaps-regular.ttf" id="2_ghtcv"]
+[ext_resource type="StyleBox" uid="uid://cso5necrl7xb8" path="res://assets/panelbox.tres" id="2_vd68j"]
+[ext_resource type="FontFile" uid="uid://ct8iy8c12r3b5" path="res://assets/font/Cohaerentia-Italic.ttf" id="3_eit8t"]
+
+[resource]
+default_font = ExtResource("1_yd8m2")
+Button/styles/normal = ExtResource("1_2ka2e")
+HBoxContainer/constants/separation = 9
+Panel/styles/panel = ExtResource("2_vd68j")
+RichTextLabel/font_sizes/bold_font_size = 20
+RichTextLabel/fonts/bold_font = ExtResource("2_ghtcv")
+RichTextLabel/fonts/italics_font = ExtResource("3_eit8t")
+VBoxContainer/constants/separation = 7

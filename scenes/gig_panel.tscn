@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfv88nnwfqyq"]
+
+[ext_resource type="Theme" uid="uid://cyk224o6irr6" path="res://assets/defaulttheme.tres" id="1_gp82e"]
+[ext_resource type="Script" path="res://scripts/gig_panel.gd" id="2_0y6r8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7n0sw"]
+bg_color = Color(0.584314, 0.411765, 0.592157, 0.847059)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="GigPanel" type="Control"]
+custom_minimum_size = Vector2(150, 91)
+layout_mode = 3
+anchor_right = 0.117188
+anchor_bottom = 0.126389
+offset_right = -0.000640869
+offset_bottom = -7.62939e-05
+theme = ExtResource("1_gp82e")
+script = ExtResource("2_0y6r8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7n0sw")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 20.0
+grow_horizontal = 2
+text = "MIH vs. Maine"
+
+[node name="Info" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_left = 0.0418848
+anchor_top = 0.241758
+anchor_right = 0.958115
+anchor_bottom = 1.0
+text = "5:30pm
+Agganis Arena"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
