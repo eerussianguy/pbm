@@ -111,6 +111,7 @@ const GREEN_STICKY = preload("res://assets/green_sticky_note.png")
 var WEIGHTED_INSTRUMENTS = []
 
 const INSTS = ["alto_saxophone", "baritone", "baritone_saxophone", "clarinet", "drumset", "flute", "keyboard", "mellophone", "tenor_saxophone", "trombone", "trumpet", "tuba"]
+const INST_WEIGHTS = [12, 6, 1, 10, 3, 10, 2, 6, 6, 10, 10, 6, ]
 var INSTRUMENT_RESOURCES: Dictionary = {}
 var INSTRUMENT_ARRAY: Array[Instrument] = []
 
@@ -122,10 +123,13 @@ const HAPPY_BIRTHDAY = preload("res://script_resources/songs/happy_birthday.tres
 const SONGS = [BELLA, CAROL, FIGHT, HAPPY_BIRTHDAY]
 
 func _ready():
-	print("Initializing Global Variables")
+	print("Global autoload scene initialized")
 	
+	var idx = 0
 	for inst in INSTS:
-		var resource: Instrument = load("res://script_resources/instruments/%s.tres" % inst)
+		var resource = Instrument.new()
+		resource.create(inst, inst.capitalize(), INST_WEIGHTS[idx])
+		idx += 1
 		INSTRUMENT_RESOURCES[inst] = resource
 		INSTRUMENT_ARRAY.append(resource)
 		for i in range(0, resource.weight):

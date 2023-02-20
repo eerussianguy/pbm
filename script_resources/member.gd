@@ -3,7 +3,7 @@ class_name Member
 
 enum Gender {Male, Female, Nonbinary}
 
-const DEFAULT_INST = preload("res://script_resources/instruments/alto_saxophone.tres")
+var DEFAULT_INST: Instrument = Global.INSTRUMENT_RESOURCES["flute"]
 
 @export var first_name: String = "First"
 @export var last_name: String = "Last"

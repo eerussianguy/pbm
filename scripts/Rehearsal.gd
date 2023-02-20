@@ -131,7 +131,8 @@ func _on_schedule_later_btn_pressed():
 
 func _make_rehearsal(date):
 	var reh = RehearsalEvent.new()
-	reh.songs_to_rehearse = [song1, song2, song3]
+	reh.songs_to_rehearse.clear()
+	reh.songs_to_rehearse.append_array([song1, song2, song3])
 	reh.date = date
 	reh.time = "6:00pm"
 	reh.location = "Band Room"

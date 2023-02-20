@@ -14,17 +14,17 @@ grow_vertical = 2
 script = ExtResource("1_06pcw")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_cpk2l")
-ignore_texture_size = true
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = -1
+layout_mode = 0
 anchor_left = 0.009375
 anchor_top = 0.483333
 anchor_right = 0.323438
@@ -37,31 +37,23 @@ alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="NewGameBtn" type="Button" parent="VBoxContainer"]
-offset_top = 85.0
-offset_right = 201.0
-offset_bottom = 103.0
+layout_mode = 2
 text = "New Game"
 
 [node name="LoadGameBtn" type="Button" parent="VBoxContainer"]
-offset_top = 110.0
-offset_right = 201.0
-offset_bottom = 128.0
+layout_mode = 2
 text = "Load Game"
 
 [node name="OptionsBtn" type="Button" parent="VBoxContainer"]
-offset_top = 135.0
-offset_right = 201.0
-offset_bottom = 153.0
+layout_mode = 2
 text = "Options"
 
 [node name="QuitGameBtn" type="Button" parent="VBoxContainer"]
-offset_top = 160.0
-offset_right = 201.0
-offset_bottom = 178.0
+layout_mode = 2
 text = "Quit"
 
 [node name="Label" type="Label" parent="."]
-anchors_preset = -1
+layout_mode = 0
 anchor_left = 0.0203125
 anchor_top = 0.0527778
 anchor_right = 0.325781

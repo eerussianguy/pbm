@@ -39,13 +39,13 @@ func _update_view():
 			income += amount
 		var node = RichTextLabel.new()
 		node.bbcode_enabled = true
-		node.fit_content_height = true
+		node.fit_content = true
 		node.append_text(_make_money_string(expense.amount, expense.title))
 		expenses.add_child(node)
 	for transaction in Global.savegame.transactions:
 		var node = RichTextLabel.new()
 		node.bbcode_enabled = true
-		node.fit_content_height = true
+		node.fit_content = true
 		node.append_text(_make_money_string(transaction.amount, transaction.title))
 		transactions.add_child(node)
 	

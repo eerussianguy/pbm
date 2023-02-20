@@ -14,7 +14,7 @@ theme = ExtResource("1_5jsvc")
 script = ExtResource("2_vfflk")
 
 [node name="Panel" type="Panel" parent="."]
-anchors_preset = -1
+layout_mode = 0
 anchor_left = 0.345703
 anchor_top = 0.329861
 anchor_right = 0.654297
@@ -24,7 +24,7 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="VBox" type="VBoxContainer" parent="Panel"]
-anchors_preset = 14
+layout_mode = 0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -37,46 +37,33 @@ grow_vertical = 2
 theme_override_constants/separation = 12
 
 [node name="Label" type="Label" parent="Panel/VBox"]
-offset_right = 388.0
-offset_bottom = 36.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Information"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBox"]
-offset_top = 48.0
-offset_right = 388.0
-offset_bottom = 82.0
+layout_mode = 2
 bbcode_enabled = true
 text = "[center]Test text inside the infobox. This test tests text inside the infobox. This is a cool test.[/center]"
-fit_content_height = true
+fit_content = true
 
 [node name="Control" type="Control" parent="Panel/VBox"]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 94.0
-offset_right = 388.0
-offset_bottom = 94.0
+layout_mode = 2
 
 [node name="Btns" type="HBoxContainer" parent="Panel/VBox"]
-offset_top = 106.0
-offset_right = 388.0
-offset_bottom = 124.0
+layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
 [node name="OkBtn" type="Button" parent="Panel/VBox/Btns"]
-offset_left = 148.0
-offset_right = 170.0
-offset_bottom = 18.0
+layout_mode = 2
 text = "OK"
 metadata/_edit_use_anchors_ = true
 
 [node name="SimBtn" type="Button" parent="Panel/VBox/Btns"]
-offset_left = 180.0
-offset_right = 239.0
-offset_bottom = 18.0
+layout_mode = 2
 text = "Simulate"
 
 [connection signal="pressed" from="Panel/VBox/Btns/OkBtn" to="." method="_on_ok_btn_pressed"]
