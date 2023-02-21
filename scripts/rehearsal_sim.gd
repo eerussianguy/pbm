@@ -6,6 +6,7 @@ var time = 0
 var paused = false
 var event: RehearsalEvent
 var last_polled = -1
+var complete = false
 
 var queue: Dictionary = {}
 
@@ -20,7 +21,8 @@ func _process(delta):
 		if time - last_polled > 1:
 			_poll_events()
 			last_polled = time
-	if time >= TOTAL_TIME:
+	if time >= TOTAL_TIME and not complete:
+		complete = true
 		_complete()
 	$Panel/VB/ProgressBar.value = time
 
@@ -30,7 +32,52 @@ func _complete():
 	$Panel/VB/DoneBtn.disabled = false
 	$Panel/VB/Label.text = "Rehearsal complete!"
 	_poll_events()
+	_modify_members()
 
+func _modify_members():
+	var participated = 0
+	var exhausted = 0
+	var near_exhausted = 0
+	var happier = 0
+	var repeats = is_repeat()
+	for member in Global.savegame.roster:
+		if member.exhaustion > 90:
+			exhausted += 1
+		else:
+			participated += 1
+			if member.exhaustion > 70:
+				member.add_happiness(-10)
+				near_exhausted += 1
+			elif member.exhaustion > 50:
+				member.add_happiness(5)
+				happier += 1
+			else:
+				member.add_happiness(10)
+				happier += 1
+			if member.technical < 30 or member.intonation < 30:
+				member.add_happiness(2)
+			member.add_exhaustion(10)
+			if repeats:
+				member.add_exhaustion(3)
+				member.add_happiness(-3)
+	text("%s members participated, %s skipped due to exhaustion" % [participated, exhausted])
+	if near_exhausted > 0:
+		text("%s members were unhappy with having to rehearse because of their exhaustion" % near_exhausted)
+	if happier > 0:
+		text("%s members became happier due to the rehearsal." % happier)
+	if repeats:
+		text("Everyone lost happiness and gained exhaustion because they rehearsed the same song more than once.")
+	
+	
+	Global.set_roster(Global.savegame.roster)
+
+func is_repeat() -> bool:
+	return (event.songs_to_rehearse[0].title == event.songs_to_rehearse[1].title) or (event.songs_to_rehearse[1].title == event.songs_to_rehearse[2].title) or (event.songs_to_rehearse[0].title == event.songs_to_rehearse[2].title)
+
+func text(statement):
+	var txt = $Panel/VB/ColorRect/Updates
+	txt.newline()
+	txt.append_text(statement)
 
 func _on_done_btn_pressed():
 	Global.savegame.events.erase(event)

@@ -54,6 +54,8 @@ func _on_roster_list_item_selected(index):
 	if is_section_leader:
 		info.newline()
 		info.append_text("Section Leader")
+	info.newline()
+	info.append_text("Happiness: %s Exhaustion: %s" % [mem.happiness, mem.exhaustion])
 	
 	var skills = get_node("MemberPanel/SkillBox")
 	skills.get_node("TechnicalSkill").set_progress(mem.technical)

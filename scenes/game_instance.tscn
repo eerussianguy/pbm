@@ -75,7 +75,6 @@ drag_to_rearrange_enabled = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Roster" type="Control" parent="TabContainer" groups=["RosterListener"]]
-visible = false
 layout_mode = 2
 script = ExtResource("2_htj6b")
 
@@ -882,6 +881,7 @@ visible = false
 layout_mode = 2
 
 [node name="Rehearsal" type="Control" parent="TabContainer" groups=["EventListener"]]
+visible = false
 layout_mode = 2
 script = ExtResource("21_7fwmg")
 
@@ -912,10 +912,10 @@ anchor_bottom = 0.728608
 metadata/_edit_use_anchors_ = true
 
 [node name="Overview" type="Control" parent="TabContainer/Rehearsal/TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Planning" type="Control" parent="TabContainer/Rehearsal/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/Rehearsal/TabContainer/Planning"]

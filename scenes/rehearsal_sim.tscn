@@ -15,7 +15,7 @@ script = ExtResource("2_uinjw")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(800, 600)
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -28,7 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VB" type="VBoxContainer" parent="Panel"]
-anchors_preset = -1
+layout_mode = 0
 anchor_left = 0.025
 anchor_top = 0.0416667
 anchor_right = 0.97
@@ -39,31 +39,38 @@ theme_override_constants/separation = 8
 metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="Label" parent="Panel/VB"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Rehearsal"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Panel/VB"]
+layout_mode = 2
 
 [node name="Label" type="Label" parent="Panel/VB"]
+layout_mode = 2
 text = "Time marches on..."
 
 [node name="ProgressBar" type="ProgressBar" parent="Panel/VB"]
+layout_mode = 2
 max_value = 30.0
 
 [node name="PauseBtn" type="Button" parent="Panel/VB"]
+layout_mode = 2
 toggle_mode = true
 text = "Pause"
 
 [node name="Label2" type="Label" parent="Panel/VB"]
+layout_mode = 2
 text = "Updates:"
 
 [node name="ColorRect" type="ColorRect" parent="Panel/VB"]
 custom_minimum_size = Vector2(360, 360)
+layout_mode = 2
 color = Color(0.129412, 0.129412, 0.129412, 1)
 
 [node name="Updates" type="RichTextLabel" parent="Panel/VB/ColorRect"]
-anchors_preset = -1
+layout_mode = 0
 anchor_left = 0.010582
 anchor_top = 0.0166667
 anchor_right = 0.992063
@@ -73,6 +80,7 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="DoneBtn" type="Button" parent="Panel/VB"]
+layout_mode = 2
 disabled = true
 text = "Exit"
 

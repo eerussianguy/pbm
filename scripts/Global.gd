@@ -233,9 +233,19 @@ func get_tomorrow_skip():
 
 func advance_day():
 	var day = get_tomorrow_skip()
-	if day > Global.savegame.datetime:
+	if day > savegame.datetime:
 		set_datetime(day)
+		do_daily_decay()
 	return day
+
+func do_daily_decay():
+	for mem in savegame.roster:
+		mem.add_exhaustion(-2)
+		if mem.happiness > 50:
+			mem.add_happiness(-1)
+		elif mem.happiness < 50:
+			mem.add_happiness(1)
+	set_roster(savegame.roster)
 
 func get_skip_to_day():
 	var min_dat = INT_MAX

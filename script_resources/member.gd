@@ -18,6 +18,7 @@ var DEFAULT_INST: Instrument = Global.INSTRUMENT_RESOURCES["flute"]
 @export var career: Array = []
 @export var traits: Array = []
 @export var happiness = 50
+@export var exhaustion = 0
 
 
 func new_member(male, female, last, index):
@@ -56,6 +57,8 @@ func new_member(male, female, last, index):
 	
 	if leadership > 30 and technical > 60 and intonation > 60 and randi() % 5 == 0:
 		traits.append("proud")
+	if randi() % 11 == 0:
+		traits.append("workaholic")
 	
 	for i in range(1, year):
 		var gigs = randi_range(24, 36)
@@ -72,6 +75,12 @@ func new_member(male, female, last, index):
 			'gigs': gigs,
 			'instrument': instrument.name
 		})
+
+func add_happiness(amount):
+	happiness = clampi(happiness + amount, 0, 100)
+
+func add_exhaustion(amount):
+	exhaustion = clampi(exhaustion + amount, 0, 100)
 
 func weight_skill(years: int, grad: bool):
 	if grad:
